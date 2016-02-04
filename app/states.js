@@ -1,13 +1,16 @@
 import { createStore } from 'redux'
 
 const initialState = {
-  numberList: [6, 7, 9],
+  numberList: [0],
   language: 'EN'
 }
 
 export function reducer(state = initialState, action) {
   let newNumberList = [];
   switch (action.type) {
+    case 'AddNewDishCard':
+    // Placeholder, nothing happens here.
+      return state;
     case 'AddNewNumber':
       newNumberList = state.numberList.slice();
       newNumberList.push(state.numberList.length);

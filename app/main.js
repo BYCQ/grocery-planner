@@ -5,24 +5,30 @@ import { createSelector } from 'reselect'
 
 import { reducer, store, numberListSelector } from 'app/states'
 
+import { DishCard } from 'app/component'
+
 class App extends React.Component {
   render() {
     const { dispatch, numbers } = this.props;
-    
+
     return (
-      <div>
+      <div className='container'>
         <button onClick={() => {
             dispatch({type: 'AddNewNumber'});
           }}>
           Add
         </button>
-        <ul>
+        <br />
+        <br />
+        <div className='row'>
           {numbers.map((x, index) => {
-             return (
-               <li key={index}>{x}</li>
-             );
-           })}
-        </ul>
+            return (
+              <div className='col-md-3 col-sm-12' key={index} >
+                <DishCard dishTitle={x} />
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   }

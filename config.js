@@ -22,6 +22,7 @@ System.config({
     "react-redux": "npm:react-redux@4.2.1",
     "redux": "npm:redux@3.2.1",
     "reselect": "npm:reselect@2.0.3",
+    "twbs/bootstrap": "github:twbs/bootstrap@4.0.0-alpha",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },
@@ -42,6 +43,9 @@ System.config({
     },
     "github:jspm/nodelibs-util@0.1.0": {
       "util": "npm:util@0.10.3"
+    },
+    "github:twbs/bootstrap@4.0.0-alpha": {
+      "jquery": "github:components/jquery@2.2.0"
     },
     "npm:assert@1.3.0": {
       "util": "npm:util@0.10.3"
