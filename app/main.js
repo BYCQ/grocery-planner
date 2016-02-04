@@ -1,9 +1,9 @@
 import React from 'react'
-import { render, findDOMNode } from 'react-dom'
+import { render } from 'react-dom'
 import { connect, Provider } from 'react-redux'
 import { createSelector } from 'reselect'
 
-import { reducer, store, numberListSelector } from 'app/states'
+import { reducer, store, dishListSelector } from 'app/states'
 import { DishCard } from 'app/component'
 
 import 'twbs/bootstrap/js/bootstrap'
@@ -11,24 +11,20 @@ import 'twbs/bootstrap/css/bootstrap.css!'
 
 class App extends React.Component {
   render() {
-    const { dispatch, numbers } = this.props;
+    const { dispatch, dishes } = this.props;
 
     return (
       <div className='container'>
-        <button ref={(c) => { $(findDOMNode(c)).tooltip(); }}
-                className="btn btn-primary"
-                data-toggle="tooltip"
-                dat-aplacement="bottom"
-                title="Cleek me."
+        <button className="btn btn-primary"
                 onClick={() => {
-                    dispatch({type: 'AddNewNumber'});
+                    dispatch({type: 'AddNewCard'});
                   }}>
           Add
         </button>
         <br />
         <br />
         <div className='row'>
-          {numbers.map((x, index) => {
+          {dishes.map((x, index) => {
             return (
               <div className='col-md-3 col-sm-12' key={index} >
                 <DishCard dishTitle={x} />
@@ -42,10 +38,10 @@ class App extends React.Component {
 }
 
 const selector = createSelector(
-  numberListSelector,
-  numberList => {
+  dishListSelector,
+  dishList => {
     return {
-      numbers: numberList
+      dishes: dishList
     }
   }
 );

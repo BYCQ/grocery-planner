@@ -1,21 +1,18 @@
 import { createStore } from 'redux'
 
 const initialState = {
-  numberList: [0],
+  dishList: [0],
   language: 'EN'
 }
 
 export function reducer(state = initialState, action) {
-  let newNumberList = [];
+  let newDishList = [];
   switch (action.type) {
-    case 'AddNewDishCard':
-    // Placeholder, nothing happens here.
-      return state;
-    case 'AddNewNumber':
-      newNumberList = state.numberList.slice();
-      newNumberList.push(state.numberList.length);
+    case 'AddNewCard':
+      newDishList = state.dishList.slice();
+      newDishList.push(state.dishList.length);
       return Object.assign({}, state, {
-        numberList: newNumberList
+        dishList: newDishList
       });
     case 'ChangeLanguage':
       // Placeholder, nothing happens here.
@@ -26,7 +23,7 @@ export function reducer(state = initialState, action) {
 }
 
 export const languageSelector = state => state.language;
-export const numberListSelector = state => state.numberList;
+export const dishListSelector = state => state.dishList;
 
 export const store = createStore(reducer);
 
