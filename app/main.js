@@ -1,11 +1,13 @@
 import React from 'react'
-import { render } from 'react-dom'
+import { render, findDOMNode } from 'react-dom'
 import { connect, Provider } from 'react-redux'
 import { createSelector } from 'reselect'
 
 import { reducer, store, numberListSelector } from 'app/states'
-
 import { DishCard } from 'app/component'
+
+import 'twbs/bootstrap/js/bootstrap'
+import 'twbs/bootstrap/css/bootstrap.css!'
 
 class App extends React.Component {
   render() {
@@ -13,9 +15,14 @@ class App extends React.Component {
 
     return (
       <div className='container'>
-        <button onClick={() => {
-            dispatch({type: 'AddNewNumber'});
-          }}>
+        <button ref={(c) => { $(findDOMNode(c)).tooltip(); }}
+                className="btn btn-primary"
+                data-toggle="tooltip"
+                dat-aplacement="bottom"
+                title="Cleek me."
+                onClick={() => {
+                    dispatch({type: 'AddNewNumber'});
+                  }}>
           Add
         </button>
         <br />
